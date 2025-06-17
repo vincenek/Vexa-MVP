@@ -38,7 +38,12 @@
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+        }
+        
+        /* App Layout */
+        .app-container {
             display: flex;
+            min-height: 100vh;
         }
         
         /* Sidebar */
@@ -51,7 +56,7 @@
             height: 100vh;
             position: fixed;
             overflow-y: auto;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             z-index: 100;
         }
         
@@ -59,20 +64,20 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--light);
             text-decoration: none;
-            margin-bottom: 40px;
-            padding: 0 15px;
+            margin-bottom: 30px;
+            padding: 0 10px;
         }
         
         .logo-icon {
             color: var(--secondary);
             background: rgba(139, 92, 246, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,19 +93,17 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            padding: 15px 20px;
-            border-radius: 15px;
+            padding: 12px 15px;
+            border-radius: 12px;
             color: var(--gray);
             text-decoration: none;
             transition: all 0.3s;
             font-weight: 500;
-            font-size: 1.1rem;
         }
         
         .nav-item i {
             width: 24px;
             text-align: center;
-            font-size: 1.2rem;
         }
         
         .nav-item:hover, .nav-item.active {
@@ -119,6 +122,7 @@
             padding-left: var(--sidebar-width);
             width: calc(100% - var(--sidebar-width));
             min-height: 100vh;
+            transition: padding 0.3s ease;
         }
         
         /* Header */
@@ -128,7 +132,7 @@
             align-items: center;
             background: var(--card-bg);
             backdrop-filter: blur(10px);
-            padding: 20px 40px;
+            padding: 15px 20px;
             border-bottom: 1px solid var(--card-border);
             position: sticky;
             top: 0;
@@ -136,7 +140,7 @@
         }
         
         .header h1 {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 600;
             background: linear-gradient(90deg, var(--light) 0%, var(--gray) 100%);
             -webkit-background-clip: text;
@@ -151,14 +155,14 @@
         
         .user-actions {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             align-items: center;
         }
         
         .notification-btn, .user-btn {
-            width: 46px;
-            height: 46px;
-            border-radius: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             background: rgba(148, 163, 184, 0.1);
             display: flex;
             align-items: center;
@@ -179,52 +183,32 @@
             right: -5px;
             background: var(--success);
             color: white;
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
         }
         
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .user-avatar {
-            width: 46px;
-            height: 46px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(37, 99, 235, 0.2);
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
             font-size: 1.2rem;
-        }
-        
-        .user-details {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .user-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        
-        .user-role {
-            font-size: 0.85rem;
-            color: var(--gray);
+            margin-right: 10px;
         }
         
         /* App Sections */
         .app-section {
-            padding: 30px 40px;
+            padding: 20px;
             display: none;
         }
         
@@ -239,13 +223,13 @@
         }
         
         .section-header {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .section-title {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -253,53 +237,52 @@
         
         .section-subtitle {
             color: var(--gray);
-            font-size: 1.1rem;
-            max-width: 700px;
+            font-size: 0.95rem;
         }
         
         /* Dashboard Grid */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 20px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
         }
         
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--light);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         
         .card-title i {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             background: rgba(37, 99, 235, 0.1);
             display: flex;
             align-items: center;
@@ -309,13 +292,13 @@
         
         .card-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
         
         .card-action-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             background: rgba(148, 163, 184, 0.1);
             display: flex;
             align-items: center;
@@ -332,12 +315,12 @@
         /* Normal Wallet */
         .balance-display {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
+            flex-direction: column;
+            margin-bottom: 20px;
         }
         
         .balance-amount {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
@@ -348,23 +331,23 @@
             gap: 5px;
             color: var(--success);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
         
         .wallet-actions {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
         }
         
         .wallet-action {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            padding: 15px;
-            border-radius: 15px;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 12px;
             background: rgba(148, 163, 184, 0.05);
             cursor: pointer;
             transition: all 0.3s;
@@ -376,25 +359,25 @@
         }
         
         .wallet-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             background: rgba(37, 99, 235, 0.1);
             color: var(--primary);
         }
         
         .wallet-action-name {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
         
         .chart-container {
-            height: 300px;
-            margin-top: 20px;
+            height: 250px;
+            margin-top: 15px;
         }
         
         /* Ghost Wallet */
@@ -404,28 +387,28 @@
         }
         
         .ghost-balance {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin: 20px 0;
+            margin: 15px 0;
             color: #d8b4fe;
         }
         
         .ghost-progress {
-            margin: 30px 0;
+            margin: 20px 0;
         }
         
         .progress-labels {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--gray);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .progress-bar {
-            height: 12px;
+            height: 10px;
             background: rgba(126, 34, 206, 0.2);
-            border-radius: 6px;
+            border-radius: 5px;
             overflow: hidden;
         }
         
@@ -433,24 +416,24 @@
             height: 100%;
             width: 65%;
             background: linear-gradient(90deg, var(--ghost), #c084fc);
-            border-radius: 6px;
+            border-radius: 5px;
         }
         
         .ghost-info {
             background: rgba(126, 34, 206, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 25px;
-            font-size: 0.95rem;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 0.9rem;
             color: #d8b4fe;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .ghost-info p {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
+            gap: 8px;
+            margin-bottom: 10px;
         }
         
         .ghost-info p:last-child {
@@ -461,49 +444,49 @@
         .ai-header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .ai-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
         
         .ai-status {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: var(--success);
-            font-size: 1.1rem;
-            margin-top: 5px;
+            font-size: 0.95rem;
+            margin-top: 4px;
         }
         
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--success);
         }
         
         .ai-messages {
-            height: 350px;
+            height: 300px;
             overflow-y: auto;
-            padding-right: 15px;
-            margin-bottom: 25px;
+            padding-right: 10px;
+            margin-bottom: 20px;
         }
         
         .message {
-            padding: 18px;
-            border-radius: 18px;
-            margin-bottom: 20px;
-            max-width: 80%;
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            max-width: 90%;
         }
         
         .message-ai {
@@ -519,30 +502,30 @@
         }
         
         .message-content {
-            line-height: 1.6;
-            font-size: 1.05rem;
+            line-height: 1.5;
+            font-size: 1rem;
         }
         
         .message-time {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray);
-            margin-top: 8px;
+            margin-top: 6px;
             text-align: right;
         }
         
         .ai-input {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         
         .ai-input input {
             flex: 1;
-            padding: 18px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 12px;
             background: rgba(148, 163, 184, 0.1);
             border: none;
             color: var(--light);
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
         
         .ai-input input:focus {
@@ -552,13 +535,13 @@
         }
         
         .ai-input button {
-            width: 60px;
-            border-radius: 15px;
+            width: 54px;
+            border-radius: 12px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border: none;
             color: white;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: all 0.3s;
         }
         
@@ -569,15 +552,15 @@
         /* Financial Overview */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .stat-card {
             background: rgba(148, 163, 184, 0.05);
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 12px;
             transition: all 0.3s;
         }
         
@@ -587,15 +570,15 @@
         }
         
         .stat-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 8px;
             color: var(--light-gray);
         }
         
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 10px 0;
+            margin: 8px 0;
         }
         
         .stat-positive {
@@ -603,6 +586,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            font-size: 0.9rem;
         }
         
         .stat-negative {
@@ -610,18 +594,19 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            font-size: 0.9rem;
         }
         
         /* Recent Transactions */
         .transaction-list {
-            margin-top: 25px;
+            margin-top: 20px;
         }
         
         .transaction-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
         }
         
@@ -632,17 +617,17 @@
         .transaction-info {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 15px;
         }
         
         .transaction-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
         
         .icon-income {
@@ -661,46 +646,46 @@
         }
         
         .transaction-details {
-            line-height: 1.5;
+            line-height: 1.4;
         }
         
         .transaction-name {
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .transaction-date {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
         }
         
         .transaction-amount {
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         /* Settings */
         .settings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
         
         .settings-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 20px;
             border: 1px solid var(--card-border);
         }
         
         .settings-title {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             color: var(--light);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         
         .settings-title i {
@@ -708,7 +693,7 @@
         }
         
         .settings-option {
-            padding: 18px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
         }
         
@@ -718,14 +703,14 @@
         
         .option-title {
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            margin-bottom: 6px;
+            font-size: 1rem;
         }
         
         .option-desc {
             color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
         }
         
         .toggle-switch {
@@ -776,15 +761,15 @@
         /* Connected Banks */
         .bank-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
         
         .bank-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 20px;
             border: 1px solid var(--card-border);
             display: flex;
             flex-direction: column;
@@ -793,30 +778,30 @@
         
         .bank-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
         
         .bank-header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .bank-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             background: rgba(37, 99, 235, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary);
         }
         
         .bank-name {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
         }
         
@@ -828,26 +813,26 @@
         }
         
         .bank-balance {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 15px 0;
+            margin: 12px 0;
         }
         
         .bank-number {
             color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
         }
         
         .bank-actions {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         
         .bank-btn {
             flex: 1;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 10px;
             background: rgba(148, 163, 184, 0.1);
             border: none;
             color: var(--light);
@@ -857,7 +842,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
+            font-size: 0.9rem;
         }
         
         .bank-btn:hover {
@@ -872,7 +858,6 @@
             
             .main-content {
                 padding-left: 80px;
-                width: calc(100% - 80px);
             }
             
             .logo span, .nav-item span {
@@ -884,15 +869,10 @@
             }
         }
         
-        @media (max-width: 992px) {
-            .wallet-actions {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
         @media (max-width: 768px) {
             .sidebar {
                 transform: translateX(-100%);
+                width: 280px;
             }
             
             .sidebar.active {
@@ -905,11 +885,11 @@
             }
             
             .header {
-                padding: 15px 20px;
+                padding: 12px 15px;
             }
             
             .app-section {
-                padding: 20px;
+                padding: 15px;
             }
             
             .user-details {
@@ -917,633 +897,484 @@
             }
             
             .menu-toggle {
-                display: block;
-            }
-        }
-        
-        .menu-toggle {
-            display: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: rgba(37, 99, 235, 0.2);
-            color: var(--primary);
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin-right: 15px;
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
+            
+            .wallet-actions {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .dashboard-grid, .stats-grid, .bank-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .balance-amount {
+                font-size: 1.8rem;
+            }
+            
+            .ghost-balance {
+                font-size: 1.8rem;
+            }
+            
+            .wallet-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .ai-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .ai-messages {
+                height: 250px;
+            }
+            
+            .bank-btn span {
+                display: none;
+            }
+            
+            .bank-btn {
+                padding: 10px;
+            }
+            
+            .bank-btn i {
+                margin: 0;
+            }
+        }
+        
+        /* Overlay for mobile sidebar */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+        
+        .sidebar.active + .sidebar-overlay {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <a href="#" class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-brain"></i>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <span>VEXA</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-section="normal-wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span>Normal Wallet</span>
+                </a>
+                <a href="#" class="nav-item" data-section="ghost-wallet">
+                    <i class="fas fa-ghost"></i>
+                    <span>Ghost Wallet</span>
+                </a>
+                <a href="#" class="nav-item" data-section="ai-guidance">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Guidance</span>
+                </a>
+                <a href="#" class="nav-item" data-section="bank-accounts">
+                    <i class="fas fa-university"></i>
+                    <span>Bank Accounts</span>
+                </a>
+                <a href="#" class="nav-item" data-section="transactions">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
             </div>
-            <span>VEXA</span>
-        </a>
-        
-        <div class="nav-links">
-            <a href="#" class="nav-item active" data-section="dashboard">
-                <i class="fas fa-home"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="#" class="nav-item" data-section="normal-wallet">
-                <i class="fas fa-wallet"></i>
-                <span>Normal Wallet</span>
-            </a>
-            <a href="#" class="nav-item" data-section="ghost-wallet">
-                <i class="fas fa-ghost"></i>
-                <span>Ghost Wallet</span>
-            </a>
-            <a href="#" class="nav-item" data-section="ai-guidance">
-                <i class="fas fa-robot"></i>
-                <span>AI Guidance</span>
-            </a>
-            <a href="#" class="nav-item" data-section="analytics">
-                <i class="fas fa-chart-line"></i>
-                <span>Analytics</span>
-            </a>
-            <a href="#" class="nav-item" data-section="bank-accounts">
-                <i class="fas fa-university"></i>
-                <span>Bank Accounts</span>
-            </a>
-            <a href="#" class="nav-item" data-section="transactions">
-                <i class="fas fa-exchange-alt"></i>
-                <span>Transactions</span>
-            </a>
-            <a href="#" class="nav-item" data-section="settings">
-                <i class="fas fa-cog"></i>
-                <span>Settings</span>
-            </a>
         </div>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <h1>Your Financial <span>Exoskeleton</span></h1>
-            <div class="user-actions">
-                <div class="notification-btn">
-                    <i class="fas fa-bell"></i>
-                    <div class="notification-badge">3</div>
-                </div>
-                <div class="user-btn">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="user-info">
-                    <div class="user-avatar">JD</div>
-                    <div class="user-details">
-                        <div class="user-name">John Doe</div>
-                        <div class="user-role">Premium Member</div>
+        
+        <div class="sidebar-overlay"></div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Your Financial <span>Exoskeleton</span></h1>
+                <div class="user-actions">
+                    <div class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <div class="notification-badge">3</div>
+                    </div>
+                    <div class="user-btn">
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Dashboard Section -->
-        <div class="app-section active" id="dashboard">
-            <div class="section-header">
-                <h2 class="section-title">Financial Dashboard</h2>
-                <p class="section-subtitle">Your complete financial overview. Track spending, savings, and investments in one place.</p>
+            
+            <!-- Dashboard Section -->
+            <div class="app-section active" id="dashboard">
+                <div class="section-header">
+                    <h2 class="section-title">Financial Dashboard</h2>
+                    <p class="section-subtitle">Your complete financial overview</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-wallet"></i> Normal Wallet</h2>
+                        </div>
+                        <div class="balance-amount">$12,458.75</div>
+                        <div class="balance-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+$245.60 this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-ghost"></i> Ghost Wallet</h2>
+                        </div>
+                        <div class="ghost-balance">$8,420.50</div>
+                        <div class="balance-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+$420.50 this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-chart-line"></i> Net Worth</h2>
+                        </div>
+                        <div class="balance-amount">$64,842.25</div>
+                        <div class="balance-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+$1,245.60 this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-piggy-bank"></i> Savings Rate</h2>
+                        </div>
+                        <div class="balance-amount">27%</div>
+                        <div class="balance-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+3% from last month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-exchange-alt"></i> Recent Transactions</h2>
+                    </div>
+                    
+                    <div class="transaction-list">
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-income">
+                                    <i class="fas fa-sack-dollar"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Salary Deposit</div>
+                                    <div class="transaction-date">Today, 9:30 AM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--success);">+$3,850.00</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-savings">
+                                    <i class="fas fa-ghost"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Auto-Save to Ghost</div>
+                                    <div class="transaction-date">Today, 9:31 AM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--ghost);">+$385.00</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-expense">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Mortgage Payment</div>
+                                    <div class="transaction-date">Yesterday, 2:15 PM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--warning);">-$1,200.00</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="dashboard-grid">
+            <!-- Normal Wallet Section -->
+            <div class="app-section" id="normal-wallet">
+                <div class="section-header">
+                    <h2 class="section-title">Normal Wallet</h2>
+                    <p class="section-subtitle">Your active spending account</p>
+                </div>
+                
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title"><i class="fas fa-wallet"></i> Normal Wallet</h2>
                     </div>
-                    <div class="balance-amount">$12,458.75</div>
-                    <div class="balance-change">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>+$245.60 (2.1%) this month</span>
+                    
+                    <div class="balance-display">
+                        <div>
+                            <div class="balance-amount">$12,458.75</div>
+                            <div class="balance-change">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+$245.60 this month</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-actions">
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="wallet-action-name">Deposit</div>
+                        </div>
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="wallet-action-name">Withdraw</div>
+                        </div>
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="wallet-action-name">Transfer</div>
+                        </div>
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="wallet-action-name">Pay</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="normalWalletChart"></canvas>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Ghost Wallet Section -->
+            <div class="app-section" id="ghost-wallet">
+                <div class="section-header">
+                    <h2 class="section-title">Ghost Wallet</h2>
+                    <p class="section-subtitle">Your secure savings vault</p>
+                </div>
                 
-                <div class="card">
+                <div class="card ghost-wallet">
                     <div class="card-header">
                         <h2 class="card-title"><i class="fas fa-ghost"></i> Ghost Wallet</h2>
                     </div>
+                    
                     <div class="ghost-balance">$8,420.50</div>
                     <div class="balance-change">
                         <i class="fas fa-arrow-up"></i>
-                        <span>+$420.50 (5.3%) this month</span>
+                        <span>+$420.50 this month</span>
                     </div>
+                    
+                    <div class="ghost-progress">
+                        <div class="progress-labels">
+                            <span>Savings Goal: $13,000</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="ghost-info">
+                        <p><i class="fas fa-shield-alt"></i> Funds secured with blockchain</p>
+                        <p><i class="fas fa-lock"></i> 48-hour withdrawal cooldown</p>
+                        <p><i class="fas fa-chart-line"></i> Growing at 5.8% APY</p>
+                        <p><i class="fas fa-robot"></i> AI allocates 10% of your income</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Guidance Section -->
+            <div class="app-section" id="ai-guidance">
+                <div class="section-header">
+                    <h2 class="section-title">AI Financial Guidance</h2>
+                    <p class="section-subtitle">Your personal financial assistant</p>
                 </div>
                 
                 <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title"><i class="fas fa-chart-line"></i> Net Worth</h2>
+                    <div class="ai-header">
+                        <div class="ai-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h2 class="card-title">VEXA AI Assistant</h2>
+                            <div class="ai-status">
+                                <div class="status-dot"></div>
+                                <span>Online - Ready to help</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="balance-amount">$64,842.25</div>
-                    <div class="balance-change">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>+$1,245.60 (2.0%) this month</span>
+                    
+                    <div class="ai-messages">
+                        <div class="message message-ai">
+                            <div class="message-content">
+                                Hello! I'm your VEXA financial assistant. How can I help you today?
+                            </div>
+                            <div class="message-time">12:45 PM</div>
+                        </div>
+                        
+                        <div class="message message-user">
+                            <div class="message-content">
+                                Can you review my spending this month?
+                            </div>
+                            <div class="message-time">12:46 PM</div>
+                        </div>
+                        
+                        <div class="message message-ai">
+                            <div class="message-content">
+                                Absolutely! I've analyzed your spending. You've spent $1,245 this month which is 15% below your budget. Great job!
+                            </div>
+                            <div class="message-time">12:46 PM</div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title"><i class="fas fa-piggy-bank"></i> Savings Rate</h2>
-                    </div>
-                    <div class="balance-amount">27%</div>
-                    <div class="balance-change">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>+3% from last month</span>
+                    
+                    <div class="ai-input">
+                        <input type="text" placeholder="Ask me about your finances..." id="aiInput">
+                        <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
             
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-chart-bar"></i> Spending Analysis</h2>
-                    <div class="card-actions">
-                        <div class="card-action-btn">
-                            <i class="fas fa-calendar"></i>
+            <!-- Bank Accounts Section -->
+            <div class="app-section" id="bank-accounts">
+                <div class="section-header">
+                    <h2 class="section-title">Connected Bank Accounts</h2>
+                    <p class="section-subtitle">Your linked financial institutions</p>
+                </div>
+                
+                <div class="bank-grid">
+                    <div class="bank-card">
+                        <div class="bank-header">
+                            <div class="bank-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="bank-name">Chase Bank</div>
+                        </div>
+                        <div class="bank-details">
+                            <div class="bank-balance">$8,245.60</div>
+                            <div class="bank-number">Checking •••• 4582</div>
+                            <div class="bank-actions">
+                                <button class="bank-btn"><i class="fas fa-exchange-alt"></i> Transfer</button>
+                                <button class="bank-btn"><i class="fas fa-chart-line"></i> Details</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="spendingChart"></canvas>
+                    
+                    <div class="bank-card">
+                        <div class="bank-header">
+                            <div class="bank-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="bank-name">Bank of America</div>
+                        </div>
+                        <div class="bank-details">
+                            <div class="bank-balance">$12,420.80</div>
+                            <div class="bank-number">Savings •••• 7821</div>
+                            <div class="bank-actions">
+                                <button class="bank-btn"><i class="fas fa-exchange-alt"></i> Transfer</button>
+                                <button class="bank-btn"><i class="fas fa-chart-line"></i> Details</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-exchange-alt"></i> Recent Transactions</h2>
-                    <div class="card-actions">
-                        <div class="card-action-btn">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                    </div>
+            <!-- Settings Section -->
+            <div class="app-section" id="settings">
+                <div class="section-header">
+                    <h2 class="section-title">Account Settings</h2>
+                    <p class="section-subtitle">Manage your preferences</p>
                 </div>
                 
-                <div class="transaction-list">
-                    <div class="transaction-item">
-                        <div class="transaction-info">
-                            <div class="transaction-icon icon-income">
-                                <i class="fas fa-sack-dollar"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-name">Salary Deposit</div>
-                                <div class="transaction-date">Today, 9:30 AM</div>
-                            </div>
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3 class="settings-title"><i class="fas fa-user-shield"></i> Security</h3>
+                        
+                        <div class="settings-option">
+                            <div class="option-title">Two-Factor Authentication</div>
+                            <div class="option-desc">Add an extra layer of security</div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
                         </div>
-                        <div class="transaction-amount" style="color: var(--success);">+$3,850.00</div>
+                        
+                        <div class="settings-option">
+                            <div class="option-title">Biometric Login</div>
+                            <div class="option-desc">Use fingerprint or face recognition</div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
                     </div>
                     
-                    <div class="transaction-item">
-                        <div class="transaction-info">
-                            <div class="transaction-icon icon-savings">
-                                <i class="fas fa-ghost"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-name">Auto-Save to Ghost</div>
-                                <div class="transaction-date">Today, 9:31 AM</div>
-                            </div>
+                    <div class="settings-card">
+                        <h3 class="settings-title"><i class="fas fa-robot"></i> AI Preferences</h3>
+                        
+                        <div class="settings-option">
+                            <div class="option-title">Auto-Saving Rules</div>
+                            <div class="option-desc">Set rules for automatic savings</div>
+                            <button class="bank-btn">Configure</button>
                         </div>
-                        <div class="transaction-amount" style="color: var(--ghost);">+$385.00</div>
-                    </div>
-                    
-                    <div class="transaction-item">
-                        <div class="transaction-info">
-                            <div class="transaction-icon icon-expense">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-name">Mortgage Payment</div>
-                                <div class="transaction-date">Yesterday, 2:15 PM</div>
-                            </div>
+                        
+                        <div class="settings-option">
+                            <div class="option-title">Spending Alerts</div>
+                            <div class="option-desc">Notifications for unusual spending</div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
                         </div>
-                        <div class="transaction-amount" style="color: var(--warning);">-$1,200.00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Normal Wallet Section -->
-        <div class="app-section" id="normal-wallet">
-            <div class="section-header">
-                <h2 class="section-title">Normal Wallet</h2>
-                <p class="section-subtitle">Your active spending account with real-time insights and transaction capabilities.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-wallet"></i> Normal Wallet</h2>
-                    <div class="card-actions">
-                        <div class="card-action-btn">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <div class="card-action-btn">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="balance-display">
-                    <div>
-                        <div class="balance-amount">$12,458.75</div>
-                        <div class="balance-change">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>+$245.60 (2.1%) this month</span>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="bank-btn" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
-                            <i class="fas fa-ghost"></i> Transfer to Ghost
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="wallet-actions">
-                    <div class="wallet-action">
-                        <div class="wallet-icon">
-                            <i class="fas fa-arrow-down"></i>
-                        </div>
-                        <div class="wallet-action-name">Deposit</div>
-                    </div>
-                    <div class="wallet-action">
-                        <div class="wallet-icon">
-                            <i class="fas fa-arrow-up"></i>
-                        </div>
-                        <div class="wallet-action-name">Withdraw</div>
-                    </div>
-                    <div class="wallet-action">
-                        <div class="wallet-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <div class="wallet-action-name">Transfer</div>
-                    </div>
-                    <div class="wallet-action">
-                        <div class="wallet-icon">
-                            <i class="fas fa-qrcode"></i>
-                        </div>
-                        <div class="wallet-action-name">Pay</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <canvas id="normalWalletChart"></canvas>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-exchange-alt"></i> Recent Transactions</h2>
-                    <div class="card-actions">
-                        <div class="card-action-btn">
-                            <i class="fas fa-download"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="transaction-list">
-                    <div class="transaction-item">
-                        <div class="transaction-info">
-                            <div class="transaction-icon icon-expense">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-name">Grocery Store</div>
-                                <div class="transaction-date">Today, 6:45 PM</div>
-                            </div>
-                        </div>
-                        <div class="transaction-amount" style="color: var(--warning);">-$85.30</div>
-                    </div>
-                    
-                    <div class="transaction-item">
-                        <div class="transaction-info">
-                            <div class="transaction-icon icon-income">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-name">Investment Dividend</div>
-                                <div class="transaction-date">Today, 11:20 AM</div>
-                            </div>
-                        </div>
-                        <div class="transaction-amount" style="color: var(--success);">+$245.60</div>
-                    </div>
-                    
-                    <div class="transaction-item">
-                        <div class="transaction-info">
-                            <div class="transaction-icon icon-expense">
-                                <i class="fas fa-gas-pump"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-name">Gas Station</div>
-                                <div class="transaction-date">Yesterday, 5:30 PM</div>
-                            </div>
-                        </div>
-                        <div class="transaction-amount" style="color: var(--warning);">-$45.00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Ghost Wallet Section -->
-        <div class="app-section" id="ghost-wallet">
-            <div class="section-header">
-                <h2 class="section-title">Ghost Wallet</h2>
-                <p class="section-subtitle">Your secure savings vault protected from impulsive spending.</p>
-            </div>
-            
-            <div class="card ghost-wallet">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-ghost"></i> Ghost Wallet</h2>
-                    <div class="card-actions">
-                        <div class="card-action-btn">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ghost-balance">$8,420.50</div>
-                <div class="balance-change">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>+$420.50 (5.3%) this month</span>
-                </div>
-                
-                <div class="ghost-progress">
-                    <div class="progress-labels">
-                        <span>Savings Goal: $13,000</span>
-                        <span>65%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-                
-                <div class="ghost-info">
-                    <p><i class="fas fa-shield-alt"></i> Funds are secured with blockchain technology</p>
-                    <p><i class="fas fa-lock"></i> Withdrawals require 48-hour cooldown period</p>
-                    <p><i class="fas fa-chart-line"></i> Growing at 5.8% APY with AI optimization</p>
-                    <p><i class="fas fa-robot"></i> AI automatically allocates 10% of your income</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-chart-line"></i> Savings Growth</h2>
-                    <div class="card-actions">
-                        <div class="card-action-btn">
-                            <i class="fas fa-calendar"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="ghostChart"></canvas>
-                </div>
-            </div>
-        </div>
-        
-        <!-- AI Guidance Section -->
-        <div class="app-section" id="ai-guidance">
-            <div class="section-header">
-                <h2 class="section-title">AI Financial Guidance</h2>
-                <p class="section-subtitle">Your personal financial assistant available 24/7 to help with money decisions.</p>
-            </div>
-            
-            <div class="card">
-                <div class="ai-header">
-                    <div class="ai-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div>
-                        <h2 class="card-title">VEXA AI Assistant</h2>
-                        <div class="ai-status">
-                            <div class="status-dot"></div>
-                            <span>Online - Ready to help</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ai-messages">
-                    <div class="message message-ai">
-                        <div class="message-content">
-                            Hello! I'm your VEXA financial assistant. How can I help you today?
-                        </div>
-                        <div class="message-time">12:45 PM</div>
-                    </div>
-                    
-                    <div class="message message-user">
-                        <div class="message-content">
-                            Can you review my spending this month?
-                        </div>
-                        <div class="message-time">12:46 PM</div>
-                    </div>
-                    
-                    <div class="message message-ai">
-                        <div class="message-content">
-                            Absolutely! I've analyzed your spending patterns. You've spent $1,245 this month which is 15% below your budget. Great job! Your largest expense category is dining at $320. Would you like suggestions to optimize?
-                        </div>
-                        <div class="message-time">12:46 PM</div>
-                    </div>
-                </div>
-                
-                <div class="ai-input">
-                    <input type="text" placeholder="Ask me anything about your finances..." id="aiInput">
-                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title"><i class="fas fa-lightbulb"></i> AI Recommendations</h2>
-                </div>
-                
-                <div class="ghost-info">
-                    <p><i class="fas fa-piggy-bank"></i> <strong>Increase savings rate:</strong> You can safely increase your automatic savings to Ghost Wallet by 3%</p>
-                    <p><i class="fas fa-utensils"></i> <strong>Dining optimization:</strong> You're spending 26% of your budget on dining. Consider reducing by $80/month</p>
-                    <p><i class="fas fa-chart-line"></i> <strong>Investment opportunity:</strong> Based on your risk profile, I recommend adding $500 to your tech stock portfolio</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Bank Accounts Section -->
-        <div class="app-section" id="bank-accounts">
-            <div class="section-header">
-                <h2 class="section-title">Connected Bank Accounts</h2>
-                <p class="section-subtitle">Your linked financial institutions and account balances.</p>
-            </div>
-            
-            <div class="bank-grid">
-                <div class="bank-card">
-                    <div class="bank-header">
-                        <div class="bank-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <div class="bank-name">Chase Bank</div>
-                    </div>
-                    <div class="bank-details">
-                        <div class="bank-balance">$8,245.60</div>
-                        <div class="bank-number">Checking •••• 4582</div>
-                        <div class="bank-actions">
-                            <button class="bank-btn"><i class="fas fa-exchange-alt"></i> Transfer</button>
-                            <button class="bank-btn"><i class="fas fa-chart-line"></i> Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bank-card">
-                    <div class="bank-header">
-                        <div class="bank-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <div class="bank-name">Bank of America</div>
-                    </div>
-                    <div class="bank-details">
-                        <div class="bank-balance">$12,420.80</div>
-                        <div class="bank-number">Savings •••• 7821</div>
-                        <div class="bank-actions">
-                            <button class="bank-btn"><i class="fas fa-exchange-alt"></i> Transfer</button>
-                            <button class="bank-btn"><i class="fas fa-chart-line"></i> Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bank-card">
-                    <div class="bank-header">
-                        <div class="bank-icon">
-                            <i class="fab fa-cc-mastercard"></i>
-                        </div>
-                        <div class="bank-name">MasterCard Platinum</div>
-                    </div>
-                    <div class="bank-details">
-                        <div class="bank-balance">-$1,245.30</div>
-                        <div class="bank-number">Credit •••• 3248</div>
-                        <div class="bank-actions">
-                            <button class="bank-btn"><i class="fas fa-exchange-alt"></i> Pay</button>
-                            <button class="bank-btn"><i class="fas fa-chart-line"></i> Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bank-card">
-                    <div class="bank-header">
-                        <div class="bank-icon">
-                            <i class="fab fa-cc-visa"></i>
-                        </div>
-                        <div class="bank-name">Visa Signature</div>
-                    </div>
-                    <div class="bank-details">
-                        <div class="bank-balance">-$420.50</div>
-                        <div class="bank-number">Credit •••• 9812</div>
-                        <div class="bank-actions">
-                            <button class="bank-btn"><i class="fas fa-exchange-alt"></i> Pay</button>
-                            <button class="bank-btn"><i class="fas fa-chart-line"></i> Details</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Settings Section -->
-        <div class="app-section" id="settings">
-            <div class="section-header">
-                <h2 class="section-title">Account Settings</h2>
-                <p class="section-subtitle">Manage your preferences and security settings.</p>
-            </div>
-            
-            <div class="settings-grid">
-                <div class="settings-card">
-                    <h3 class="settings-title"><i class="fas fa-user-shield"></i> Security</h3>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Two-Factor Authentication</div>
-                        <div class="option-desc">Add an extra layer of security to your account</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Biometric Login</div>
-                        <div class="option-desc">Use fingerprint or face recognition</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Auto-Lock</div>
-                        <div class="option-desc">Lock app after 2 minutes of inactivity</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="settings-card">
-                    <h3 class="settings-title"><i class="fas fa-robot"></i> AI Preferences</h3>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Auto-Saving Rules</div>
-                        <div class="option-desc">Set rules for automatic savings to Ghost Wallet</div>
-                        <button class="bank-btn">Configure</button>
-                    </div>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Spending Alerts</div>
-                        <div class="option-desc">Receive notifications for unusual spending</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Investment Strategy</div>
-                        <div class="option-desc">Modify your risk tolerance and goals</div>
-                        <button class="bank-btn">Update</button>
-                    </div>
-                </div>
-                
-                <div class="settings-card">
-                    <h3 class="settings-title"><i class="fas fa-bell"></i> Notifications</h3>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Transaction Alerts</div>
-                        <div class="option-desc">Get notified for all transactions</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Savings Milestones</div>
-                        <div class="option-desc">Celebrate when you reach savings goals</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="settings-option">
-                        <div class="option-title">Market Updates</div>
-                        <div class="option-desc">Receive financial market news</div>
-                        <label class="toggle-switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
                     </div>
                 </div>
             </div>
@@ -1553,50 +1384,6 @@
     <script>
         // Initialize charts
         function initCharts() {
-            // Spending chart
-            const spendingCtx = document.getElementById('spendingChart').getContext('2d');
-            const spendingChart = new Chart(spendingCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Housing', 'Food', 'Transport', 'Entertainment', 'Utilities', 'Healthcare'],
-                    datasets: [{
-                        data: [1200, 320, 280, 150, 120, 85],
-                        backgroundColor: [
-                            'rgba(37, 99, 235, 0.8)',
-                            'rgba(139, 92, 246, 0.8)',
-                            'rgba(59, 130, 246, 0.8)',
-                            'rgba(99, 102, 241, 0.8)',
-                            'rgba(129, 140, 248, 0.8)',
-                            'rgba(165, 180, 252, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(37, 99, 235, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(99, 102, 241, 1)',
-                            'rgba(129, 140, 248, 1)',
-                            'rgba(165, 180, 252, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            labels: {
-                                color: 'rgba(148, 163, 184, 0.8)',
-                                font: {
-                                    size: 12
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            
             // Normal wallet chart
             const normalWalletCtx = document.getElementById('normalWalletChart').getContext('2d');
             const normalWalletChart = new Chart(normalWalletCtx, {
@@ -1641,57 +1428,15 @@
                     }
                 }
             });
-            
-            // Ghost wallet chart
-            const ghostCtx = document.getElementById('ghostChart').getContext('2d');
-            const ghostChart = new Chart(ghostCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-                    datasets: [{
-                        label: 'Savings',
-                        data: [6000, 6200, 6500, 6800, 7000, 7300, 7800, 8420],
-                        borderColor: 'rgba(126, 34, 206, 1)',
-                        backgroundColor: 'rgba(126, 34, 206, 0.1)',
-                        borderWidth: 3,
-                        tension: 0.3,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            grid: {
-                                color: 'rgba(148, 163, 184, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(148, 163, 184, 0.8)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(148, 163, 184, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(148, 163, 184, 0.8)'
-                            }
-                        }
-                    }
-                }
-            });
         }
         
         // Navigation
         function setupNavigation() {
             const navItems = document.querySelectorAll('.nav-item');
             const sections = document.querySelectorAll('.app-section');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
             
             navItems.forEach(item => {
                 item.addEventListener('click', function(e) {
@@ -1711,18 +1456,28 @@
                     
                     // Show target section
                     document.getElementById(targetSection).classList.add('active');
+                    
+                    // Close sidebar on mobile
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                        overlay.style.display = 'none';
+                    }
                 });
             });
             
             // Mobile menu toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const sidebar = document.querySelector('.sidebar');
-            
             if (menuToggle) {
                 menuToggle.addEventListener('click', function() {
                     sidebar.classList.toggle('active');
+                    overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
                 });
             }
+            
+            // Close sidebar when clicking outside
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                this.style.display = 'none';
+            });
         }
         
         // AI Chat functionality
@@ -1773,15 +1528,13 @@
                 const lowerMessage = message.toLowerCase();
                 
                 if (lowerMessage.includes('spend') || lowerMessage.includes('expense')) {
-                    return "I've analyzed your spending patterns. Your largest expense category this month is dining at $320, which is 26% of your total expenses. Would you like me to suggest ways to reduce this?";
+                    return "I've analyzed your spending patterns. Your largest expense category this month is dining at $320. Would you like suggestions to optimize?";
                 } else if (lowerMessage.includes('save') || lowerMessage.includes('ghost')) {
-                    return "Your Ghost Wallet currently has $8,420.50, growing at 5.8% APY. You're on track to reach your savings goal of $13,000 by December. Would you like to increase your automatic savings rate?";
+                    return "Your Ghost Wallet currently has $8,420.50. You're on track to reach your savings goal of $13,000 by December.";
                 } else if (lowerMessage.includes('budget')) {
-                    return "Your current monthly budget is set at $1,500 for discretionary spending. You've spent $745 so far this month, leaving $755 available. You're currently 12% under budget for the month.";
-                } else if (lowerMessage.includes('invest') || lowerMessage.includes('grow')) {
-                    return "Based on your risk profile, I recommend allocating 60% to index funds, 30% to bonds, and 10% to emerging markets. Your current portfolio is returning 7.2% annually. Would you like a detailed investment report?";
+                    return "Your current monthly budget is set at $1,500. You've spent $745 so far this month, leaving $755 available.";
                 } else {
-                    return "I can help you with your finances! Ask me about your spending, savings, investments, or budget. For example: 'How much did I spend on dining last month?' or 'What's my savings progress?'";
+                    return "I can help you with your finances! Ask me about spending, savings, or budget.";
                 }
             }
         }
