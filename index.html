@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEXA - Your Financial Exoskeleton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #0b1120;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --ghost: #7e22ce;
+            --quantum: #06b6d4;
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --card-border: rgba(148, 163, 184, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* App Layout */
+        .app-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px 15px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: calc(100vh - 40px);
+            position: sticky;
+            top: 20px;
+            overflow-y: auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+            background: rgba(139, 92, 246, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-item i {
+            width: 24px;
+            text-align: center;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: rgba(37, 99, 235, 0.2);
+            color: var(--light);
+        }
+        
+        .nav-item.active {
+            background: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px 30px;
+            border: 1px solid var(--card-border);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--light) 0%, var(--gray) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header h1 span {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .notification-btn, .user-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(148, 163, 184, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .notification-btn:hover, .user-btn:hover {
+            background: rgba(37, 99, 235, 0.3);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--success);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .card-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: rgba(148, 163, 184, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .card-action-btn:hover {
+            background: rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Normal Wallet */
+        .normal-wallet {
+            grid-column: span 8;
+        }
+        
+        .balance-display {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .balance-change {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .wallet-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .wallet-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(148, 163, 184, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .wallet-action:hover {
+            background: rgba(37, 99, 235, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .wallet-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+        
+        .wallet-action-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Ghost Wallet */
+        .ghost-wallet {
+            grid-column: span 4;
+            background: rgba(126, 34, 206, 0.1);
+            border-color: rgba(126, 34, 206, 0.3);
+        }
+        
+        .ghost-wallet .card-title {
+            color: #d8b4fe;
+        }
+        
+        .ghost-balance {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: #d8b4fe;
+        }
+        
+        .ghost-progress {
+            margin: 25px 0;
+        }
+        
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(126, 34, 206, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, var(--ghost), #c084fc);
+            border-radius: 5px;
+        }
+        
+        .ghost-info {
+            background: rgba(126, 34, 206, 0.2);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #d8b4fe;
+        }
+        
+        /* AI Guidance */
+        .ai-guidance {
+            grid-column: span 6;
+        }
+        
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .ai-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+        
+        .ai-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+        
+        .message-ai {
+            background: rgba(37, 99, 235, 0.1);
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+        
+        .message-user {
+            background: rgba(148, 163, 184, 0.1);
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+        }
+        
+        .message-content {
+            line-height: 1.5;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        .ai-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .ai-input input {
+            flex: 1;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(148, 163, 184, 0.1);
+            border: none;
+            color: var(--light);
+            font-size: 1rem;
+        }
+        
+        .ai-input input:focus {
+            outline: none;
+            background: rgba(148, 163, 184, 0.2);
+        }
+        
+        .ai-input button {
+            width: 50px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .ai-input button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Financial Overview */
+        .financial-overview {
+            grid-column: span 6;
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin-top: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(148, 163, 184, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stat-positive {
+            color: var(--success);
+        }
+        
+        .stat-negative {
+            color: var(--warning);
+        }
+        
+        /* Recent Transactions */
+        .transactions {
+            grid-column: span 12;
+        }
+        
+        .transaction-list {
+            margin-top: 20px;
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .transaction-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .icon-income {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .icon-expense {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+        
+        .icon-savings {
+            background: rgba(126, 34, 206, 0.1);
+            color: var(--ghost);
+        }
+        
+        .transaction-details {
+            line-height: 1.4;
+        }
+        
+        .transaction-name {
+            font-weight: 500;
+        }
+        
+        .transaction-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .transaction-amount {
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .app-container {
+                grid-template-columns: 70px 1fr;
+            }
+            
+            .logo span {
+                display: none;
+            }
+            
+            .nav-item span {
+                display: none;
+            }
+            
+            .normal-wallet {
+                grid-column: span 12;
+            }
+            
+            .ghost-wallet {
+                grid-column: span 12;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .wallet-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .ai-guidance, .financial-overview {
+                grid-column: span 12;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            
+            .sidebar {
+                height: auto;
+                position: relative;
+                top: 0;
+            }
+            
+            .wallet-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <span>VEXA</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-wallet"></i>
+                    <span>Normal Wallet</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-ghost"></i>
+                    <span>Ghost Wallet</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Guidance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help Center</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Your Financial <span>Exoskeleton</span></h1>
+                <div class="user-actions">
+                    <div class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <div class="notification-badge">3</div>
+                    </div>
+                    <div class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Normal Wallet -->
+                <div class="card normal-wallet">
+                    <div class="card-header">
+                        <h2 class="card-title">Normal Wallet</h2>
+                        <div class="card-actions">
+                            <div class="card-action-btn">
+                                <i class="fas fa-sync"></i>
+                            </div>
+                            <div class="card-action-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="balance-display">
+                        <div>
+                            <div class="balance-amount">$12,458.75</div>
+                            <div class="balance-change">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+$245.60 (2.1%) this month</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="cta-button" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 12px 25px; border-radius: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                                Transfer to Ghost
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-actions">
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="wallet-action-name">Deposit</div>
+                        </div>
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="wallet-action-name">Withdraw</div>
+                        </div>
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="wallet-action-name">Transfer</div>
+                        </div>
+                        <div class="wallet-action">
+                            <div class="wallet-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="wallet-action-name">Pay</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Ghost Wallet -->
+                <div class="card ghost-wallet">
+                    <div class="card-header">
+                        <h2 class="card-title">Ghost Wallet</h2>
+                        <div class="card-actions">
+                            <div class="card-action-btn">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ghost-balance">$8,420.50</div>
+                    <div class="balance-change">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+$420.50 (5.3%) this month</span>
+                    </div>
+                    
+                    <div class="ghost-progress">
+                        <div class="progress-labels">
+                            <span>Savings Goal</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="ghost-info">
+                        <p><i class="fas fa-shield-alt"></i> Funds are secured with blockchain technology</p>
+                        <p><i class="fas fa-lock"></i> Withdrawals require 48-hour cooldown period</p>
+                        <p><i class="fas fa-chart-line"></i> Growing at 5.8% APY with AI optimization</p>
+                    </div>
+                </div>
+                
+                <!-- AI Guidance -->
+                <div class="card ai-guidance">
+                    <div class="card-header">
+                        <div class="ai-header">
+                            <div class="ai-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <h2 class="card-title">VEXA AI Assistant</h2>
+                                <div class="ai-status">
+                                    <div class="status-dot"></div>
+                                    <span>Online - Ready to help</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-messages">
+                        <div class="message message-ai">
+                            <div class="message-content">
+                                Hello! I'm your VEXA financial assistant. How can I help you today?
+                            </div>
+                            <div class="message-time">12:45 PM</div>
+                        </div>
+                        
+                        <div class="message message-user">
+                            <div class="message-content">
+                                Can you review my spending this month?
+                            </div>
+                            <div class="message-time">12:46 PM</div>
+                        </div>
+                        
+                        <div class="message message-ai">
+                            <div class="message-content">
+                                Absolutely! I've analyzed your spending patterns. You've spent $1,245 this month which is 15% below your budget. Great job! Your largest expense category is dining at $320. Would you like suggestions to optimize?
+                            </div>
+                            <div class="message-time">12:46 PM</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-input">
+                        <input type="text" placeholder="Ask me anything about your finances...">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Financial Overview -->
+                <div class="card financial-overview">
+                    <div class="card-header">
+                        <h2 class="card-title">Financial Overview</h2>
+                        <div class="card-actions">
+                            <div class="card-action-btn">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="financeChart"></canvas>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div>Monthly Income</div>
+                            <div class="stat-value">$5,240</div>
+                            <div class="stat-positive">+$240 from last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div>Monthly Expenses</div>
+                            <div class="stat-value">$1,245</div>
+                            <div class="stat-negative">+$45 from last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div>Savings Rate</div>
+                            <div class="stat-value">27%</div>
+                            <div class="stat-positive">+3% from last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div>Net Worth</div>
+                            <div class="stat-value">$64,842</div>
+                            <div class="stat-positive">+$1,245 this month</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Transactions -->
+                <div class="card transactions">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Transactions</h2>
+                        <div class="card-actions">
+                            <div class="card-action-btn">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="transaction-list">
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-income">
+                                    <i class="fas fa-sack-dollar"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Salary Deposit</div>
+                                    <div class="transaction-date">Today, 9:30 AM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--success);">+$3,850.00</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-savings">
+                                    <i class="fas fa-ghost"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Auto-Save to Ghost</div>
+                                    <div class="transaction-date">Today, 9:31 AM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--ghost);">+$385.00</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-expense">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Mortgage Payment</div>
+                                    <div class="transaction-date">Yesterday, 2:15 PM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--warning);">-$1,200.00</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-expense">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Dinner at Bistro</div>
+                                    <div class="transaction-date">Aug 12, 7:45 PM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--warning);">-$85.50</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-income">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Investment Dividend</div>
+                                    <div class="transaction-date">Aug 10, 11:20 AM</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: var(--success);">+$245.60</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize spending chart
+        const spendingCtx = document.getElementById('spendingChart').getContext('2d');
+        const spendingChart = new Chart(spendingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Housing', 'Food', 'Transport', 'Entertainment', 'Utilities', 'Healthcare'],
+                datasets: [{
+                    label: 'Spending this month',
+                    data: [1200, 320, 280, 150, 120, 85],
+                    backgroundColor: [
+                        'rgba(37, 99, 235, 0.7)',
+                        'rgba(139, 92, 246, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(99, 102, 241, 0.7)',
+                        'rgba(129, 140, 248, 0.7)',
+                        'rgba(165, 180, 252, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(37, 99, 235, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(99, 102, 241, 1)',
+                        'rgba(129, 140, 248, 1)',
+                        'rgba(165, 180, 252, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(148, 163, 184, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(148, 163, 184, 0.8)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: 'rgba(148, 163, 184, 0.8)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Initialize finance chart
+        const financeCtx = document.getElementById('financeChart').getContext('2d');
+        const financeChart = new Chart(financeCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                datasets: [
+                    {
+                        label: 'Income',
+                        data: [4800, 4900, 5100, 5000, 5200, 5300, 5250, 5400],
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    },
+                    {
+                        label: 'Expenses',
+                        data: [1300, 1350, 1400, 1320, 1280, 1250, 1270, 1245],
+                        borderColor: 'rgba(245, 158, 11, 1)',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    },
+                    {
+                        label: 'Savings',
+                        data: [1100, 1150, 1250, 1200, 1350, 1450, 1420, 1500],
+                        borderColor: 'rgba(126, 34, 206, 1)',
+                        backgroundColor: 'rgba(126, 34, 206, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'rgba(148, 163, 184, 0.8)'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            color: 'rgba(148, 163, 184, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(148, 163, 184, 0.8)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(148, 163, 184, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(148, 163, 184, 0.8)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Chat functionality
+        const chatInput = document.querySelector('.ai-input input');
+        const chatButton = document.querySelector('.ai-input button');
+        const messagesContainer = document.querySelector('.ai-messages');
+        
+        chatButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Simulate AI response after delay
+                setTimeout(() => {
+                    const aiResponse = generateAIResponse(message);
+                    addMessage(aiResponse, 'ai');
+                }, 1000);
+            }
+        }
+        
+        function addMessage(content, sender) {
+            const messageEl = document.createElement('div');
+            messageEl.classList.add('message', `message-${sender}`);
+            
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+            
+            messageEl.innerHTML = `
+                <div class="message-content">${content}</div>
+                <div class="message-time">${timeString}</div>
+            `;
+            
+            messagesContainer.appendChild(messageEl);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function generateAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('spend') || lowerMessage.includes('expense')) {
+                return "I've analyzed your spending patterns. Your largest expense category this month is dining at $320, which is 26% of your total expenses. Would you like me to suggest ways to reduce this?";
+            } else if (lowerMessage.includes('save') || lowerMessage.includes('ghost')) {
+                return "Your Ghost Wallet currently has $8,420.50, growing at 5.8% APY. You're on track to reach your savings goal of $13,000 by December. Would you like to increase your automatic savings rate?";
+            } else if (lowerMessage.includes('budget')) {
+                return "Your current monthly budget is set at $1,500 for discretionary spending. You've spent $745 so far this month, leaving $755 available. You're currently 12% under budget for the month.";
+            } else if (lowerMessage.includes('invest') || lowerMessage.includes('grow')) {
+                return "Based on your risk profile, I recommend allocating 60% to index funds, 30% to bonds, and 10% to emerging markets. Your current portfolio is returning 7.2% annually. Would you like a detailed investment report?";
+            } else {
+                return "I can help you with your finances! Ask me about your spending, savings, investments, or budget. For example: 'How much did I spend on dining last month?' or 'What's my savings progress?'";
+            }
+        }
+        
+        // Simulate auto-save notification
+        setTimeout(() => {
+            const notification = document.querySelector('.notification-badge');
+            notification.textContent = parseInt(notification.textContent) + 1;
+            
+            const aiMessages = document.querySelector('.ai-messages');
+            addMessage("I've just automatically transferred 5% of your grocery purchase to your Ghost Wallet. Your savings are growing!", 'ai');
+        }, 5000);
+    </script>
+</body>
+</html>
