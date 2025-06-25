@@ -5,46 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VEXA - Your Financial Exoskeleton</title>
     
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <!-- PWA Manifest and Metadata -->
     <meta name="theme-color" content="#2563eb">
-    
-    <!-- Home Screen Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjQ4MGMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYzNTJoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjEyMGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjM1MmMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYyNTZoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjU2QzAgMjUuMSAyNS4xIDAgNTYgMGgxMjhjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xNS4zIDAtMjQtMTIuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NmgxMjh6Ii8+PC9zdmc+">
-    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI4Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
-    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxOC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE4LjMtMzItMzJWNDA0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
-    
-    <!-- PWA Install Prompt -->
-    <script>
-        // Check if browser supports PWAs
-        if('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('Service Worker registered: ', registration);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker registration failed: ', error);
-                    });
-            });
-        }
-        
-        // Show install prompt
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later
-            deferredPrompt = e;
-            // Show the install button
-            document.getElementById('install-btn').style.display = 'flex';
-        });
-    </script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjQ4MGMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYzNTJoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjEyMGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjM1MmMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYyNTZoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjU2QzAgMjUuMSAyNS4xIDAgNTYgMGgxMjhjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NmgxMjh6Ii8+PC9zdmc+">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlZFWEEgLSBGaW5hbmNpYWwgRXhvc2tlbGV0b24iLAogICJzaG9ydF9uYW1lIjogIlZFWEEiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgInRoZW1lX2NvbG9yIjogIiMyNTYzZWIiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwZjE3MmEiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBek5UQWdOVEF3SWo0OGMzUjViR1UrSUR4d1lYUm9JR1pwYkd3OUluVnliQ2dqWm1sc2RHVnlNUzR3TGpBdU1DQXhNREF1TVRZaVBnMEtQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXpOVEFnTlRBd0lqNDhjM1I1YkdVOUltWmhiSE5sTFdsdFlXZGxMV1JsYzJOeWFYQjBhVzl1SWo0OEwzTjJaejQ9IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBek5UQWdOVEF3SWo0OGMzUjViR1UrSUR4d1lYUm9JR1pwYkd3OUluVnliQ2dqWm1sc2RHVnlNUzR3TGpBdU1DQXhNREF1TVRZaVBnMEtQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXpOVEFnTlRBd0lqNDhjM1I1YkdVOUltWmhiSE5sTFdsdFlXZGxMV1JsYzJOeWFYQjBhVzl1SWo0OEwzTjJaejQ9IiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQ==">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <style>
         :root {
             --primary: #2563eb;
@@ -889,43 +858,6 @@
             background: rgba(37, 99, 235, 0.2);
         }
         
-        /* Install Button */
-        .install-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 24px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            display: none;
-        }
-        
-        /* Offline Indicator */
-        .offline-indicator {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--warning);
-            color: white;
-            border-radius: 50px;
-            padding: 8px 16px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 1000;
-            display: none;
-        }
-        
         /* Responsive Design */
         @media (max-width: 1200px) {
             .sidebar {
@@ -1033,12 +965,6 @@
             .bank-btn i {
                 margin: 0;
             }
-            
-            .install-btn {
-                bottom: 70px;
-                font-size: 0.9rem;
-                padding: 10px 16px;
-            }
         }
         
         /* Overlay for mobile sidebar */
@@ -1056,21 +982,77 @@
         .sidebar.active + .sidebar-overlay {
             display: block;
         }
+        
+        /* PWA Install Prompt */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            transform: translateY(150%);
+            transition: transform 0.5s ease;
+        }
+        
+        .install-prompt.show {
+            transform: translateY(0);
+        }
+        
+        .install-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .install-text {
+            flex: 1;
+        }
+        
+        .install-close {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            color: var(--gray);
+            cursor: pointer;
+        }
+        
+        /* Offline Indicator */
+        .offline-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--warning);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .offline-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <!-- Install Button -->
-    <button class="install-btn" id="install-btn">
-        <i class="fas fa-download"></i>
-        Install VEXA
-    </button>
-    
-    <!-- Offline Indicator -->
-    <div class="offline-indicator" id="offline-indicator">
-        <i class="fas fa-wifi-slash"></i>
-        Offline Mode
-    </div>
-    
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
@@ -1110,6 +1092,12 @@
                     <i class="fas fa-cog"></i>
                     <span>Settings</span>
                 </a>
+            </div>
+            
+            <!-- Install Button in Sidebar -->
+            <div class="nav-item" id="installButton" style="margin-top: 20px; background: rgba(37, 99, 235, 0.2);">
+                <i class="fas fa-download"></i>
+                <span>Install App</span>
             </div>
         </div>
         
@@ -1469,19 +1457,52 @@
                                 <span class="slider"></span>
                             </label>
                         </div>
+                    </div>
+                    
+                    <!-- PWA Settings -->
+                    <div class="settings-card">
+                        <h3 class="settings-title"><i class="fas fa-mobile-alt"></i> App Settings</h3>
                         
                         <div class="settings-option">
                             <div class="option-title">Offline Mode</div>
-                            <div class="option-desc">Enable app functionality without internet</div>
+                            <div class="option-desc">Access key features without internet</div>
                             <label class="toggle-switch">
-                                <input type="checkbox" checked id="offline-toggle">
+                                <input type="checkbox" id="offlineToggle" checked>
                                 <span class="slider"></span>
                             </label>
+                        </div>
+                        
+                        <div class="settings-option">
+                            <div class="option-title">Install App</div>
+                            <div class="option-desc">Add VEXA to your home screen</div>
+                            <button class="bank-btn" id="installButton2">
+                                <i class="fas fa-download"></i> Install Now
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    
+    <!-- Install Prompt -->
+    <div class="install-prompt" id="installPrompt">
+        <div class="install-icon">
+            <i class="fas fa-download"></i>
+        </div>
+        <div class="install-text">
+            <strong>Install VEXA</strong>
+            <p>Add to home screen for quick access</p>
+        </div>
+        <button class="install-close" id="closePrompt">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <!-- Offline Indicator -->
+    <div class="offline-indicator" id="offlineIndicator">
+        <i class="fas fa-wifi-slash"></i>
+        <span>You are currently offline</span>
     </div>
 
     <script>
@@ -1642,43 +1663,87 @@
             }
         }
         
-        // PWA Installation
+        // PWA Installation Prompt
         function setupPWA() {
-            const installBtn = document.getElementById('install-btn');
-            const offlineIndicator = document.getElementById('offline-indicator');
+            const installPrompt = document.getElementById('installPrompt');
+            const closePrompt = document.getElementById('closePrompt');
+            const installButton = document.getElementById('installButton');
+            const installButton2 = document.getElementById('installButton2');
+            const offlineIndicator = document.getElementById('offlineIndicator');
             
-            // Install button handler
-            installBtn.addEventListener('click', async () => {
-                if (!deferredPrompt) return;
-                
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                
-                if (outcome === 'accepted') {
-                    console.log('User accepted the install prompt');
-                    installBtn.style.display = 'none';
-                }
-                deferredPrompt = null;
+            let deferredPrompt;
+            
+            // Listen for beforeinstallprompt event
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent the mini-infobar from appearing on mobile
+                e.preventDefault();
+                // Stash the event so it can be triggered later
+                deferredPrompt = e;
+                // Show the install prompt
+                setTimeout(() => {
+                    installPrompt.classList.add('show');
+                }, 5000);
             });
             
-            // Track installation state
+            // Close prompt
+            closePrompt.addEventListener('click', () => {
+                installPrompt.classList.remove('show');
+            });
+            
+            // Install button handler
+            function installApp() {
+                if (deferredPrompt) {
+                    // Show the install prompt
+                    deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the install prompt');
+                        } else {
+                            console.log('User dismissed the install prompt');
+                        }
+                        // We no longer need the prompt. Clear it up.
+                        deferredPrompt = null;
+                        installPrompt.classList.remove('show');
+                    });
+                }
+            }
+            
+            // Add event listeners to install buttons
+            if (installButton) installButton.addEventListener('click', installApp);
+            if (installButton2) installButton2.addEventListener('click', installApp);
+            
+            // Track app installed event
             window.addEventListener('appinstalled', () => {
-                console.log('VEXA was installed');
-                installBtn.style.display = 'none';
+                console.log('VEXA was installed successfully');
+                if (installPrompt) installPrompt.classList.remove('show');
             });
             
             // Offline detection
             window.addEventListener('offline', () => {
-                offlineIndicator.style.display = 'flex';
+                offlineIndicator.classList.add('show');
             });
             
             window.addEventListener('online', () => {
-                offlineIndicator.style.display = 'none';
+                offlineIndicator.classList.remove('show');
             });
             
-            // Set initial offline state
+            // Initialize offline status
             if (!navigator.onLine) {
-                offlineIndicator.style.display = 'flex';
+                offlineIndicator.classList.add('show');
+            }
+        }
+        
+        // Register Service Worker
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }).catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
             }
         }
         
@@ -1688,22 +1753,8 @@
             setupNavigation();
             setupAIChat();
             setupPWA();
+            registerServiceWorker();
         });
-    </script>
-    
-    <!-- Service Worker Registration -->
-    <script>
-        // Register service worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
     </script>
 </body>
 </html>
