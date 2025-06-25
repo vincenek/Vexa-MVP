@@ -5,20 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VEXA - Your Financial Exoskeleton</title>
     
-    <!-- Updated home screen icons with brain logo -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjQ4MGMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYzNTJoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjEyMGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjM1MmMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYyNTZoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjU2QzAgMjUuMSAyNS4xIDAgNTYgMGgxMjhjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NmgxMjh6Ii8+PC9zdmc+">
-    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMyAwLTI0IDEwLjctMjQgMjR2Ni40YzAgMzAuOS0yNS4xIDU2LTU2IDU2Yy0zMC45IDAtNTYtMjUuMS01Ni01NnYtNi40YzAtMTMuMyAxMC43LTI0IDI0LTI0YzEzLjMgMCAyNCAxMC43IDI0IDI0djI0YzAgMzUuMyAyOC43IDY0IDY0IDY0aDY0djY0SDEyOGMtMTcuNyAwLTMyIDE0LjMtMzIgMzJ2MzJjMCAxNy43IDE0LjMgMzIgMzIgMzJoNjRjMTcuNyAwIDMyLTE0LjMgMzItMzJWNDgwYzAtMTcuNy0xNC4zLTMyLTMyLTMySDk2VjM1Mmg2NGMzNS4zIDAgNjQtMjguNyA2NC02NHYtMjRjMC0xMy4zLTEwLjctMjQtMjQtMjRzLTI0IDEwLjctMjQgMjR2Ni40YzAgMzAuOS0yNS4xIDU2LTU2IDU2Yy0zMC45IDAtNTYtMjUuMS01Ni01NnYtNi40YzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZzNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djI0YzAgMzUuMy0yOC43IDY0LTY0IDY0SDE2MGMtMzUuMyAwLTY0LTI4LjctNjQtNjR2LTI0YzAtMTMuMyAxMC43LTI0IDI0LTI0YzEzLjMgMCAyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZWMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzEzLjMgMCAyNCAxMC43IDI0IDI0djI0YzAgMzUuMyAyOC43IDY0IDY0IDY0aDY0djY0SDEyOGMtMTcuNyAwLTMyIDE0LjMtMzIgMzJ2MzJjMCAxNy43IDE0LjMgMzIgMzIgMzJoNjRjMTcuNyAwIDMyLTE0LjMgMzItMzJWMzUyYzAtMTcuNy0xNC4zLTMyLTMyLTMySDk2VjI1Nmg2NGMzNS4zIDAgNjQtMjguNyA2NC02NHYtMjRjMC0xMy4zLTEwLjctMjQtMjQtMjRzLTI0IDEwLjctMjQgMjR2Ni40YzAgMzAuOS0yNS4xIDU2LTU2IDU2Yy0zMC45IDAtNTYtMjUuMS01Ni01NnYtNi40YzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZzNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djI0YzAgMzUuMy0yOC43IDY0LTY0IDY0SDE2MGMtMzUuMyAwLTY0LTI4LjctNjQtNjR2LTI0YzAtMTMuMyAxMC43LTI0IDI0LTI0YzEzLjMgMCAyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZWNTZDMCwyNS4xIDI1LjEsMCA1NiwwaDEyOGMzMC45LDAsNTYsMjUuMSw1Niw1NnY2LjRjMCwxMy4zLTEwLjcsMjQtMjQsMjRjLTMuNCwwLTYuNi0uNy05LjYtMmMtNy40LDEwLjktMTkuMiwxOC0zMi40LDE4cy0yNS03LjEtMzIuNC0xOGMtMy45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjQ4MGMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYzNTJoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjEyMGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjM1MmMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYyNTZoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjU2QzAgMjUuMSAyNS4xIDAgNTYgMGgxMjhjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xNS4zIDAtMjQtMTIuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NmgxMjh6Ii8+PC9zdmc+">
-    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE4LjMtMzItMzJWNDA0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
-    <meta name="msapplication-TileColor" content="#2563eb">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
     
-    <!-- Rest of your existing head content -->
+    <!-- Home Screen Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMC45IDAgNTYtMjUuMSA1Ni01NnYtNi40YzAtMTMuMy0xMC43LTI0LTI0LTI0Yy0zLjQgMC02LjYuNy05LjYgMmMtNy40LTEwLjktMTkuMi0xOC0zMi40LTE4cy0yNSA3LjEtMzIuNCAxOGMtMy0uOS02LjItMS40LTkuNi0xLjRjLTEzLjMgMC0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjQ4MGMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYzNTJoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjEyMGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHYyNGMwIDM1LjMgMjguNyA2NCA2NCA2NGg2NHY2NEgxMjhjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyaDY0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjM1MmMwLTE3LjctMTQuMy0zMi0zMi0zMkg5NlYyNTZoNjRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTI0YzAtMTMuMy0xMC43LTI0LTI0LTI0cy0yNCAxMC43LTI0IDI0djYuNGMwIDMwLjktMjUuMSA1Ni01NiA1NmMtMzAuOSAwLTU2LTI1LjEtNTYtNTZ2LTYuNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMzLjQgMCA2LjYuNyA5LjYgMmM3LjQtMTAuOSAxOS4yLTE4IDMyLjQtMThzMjUgNy4xIDMyLjQgMThjMy0uOSA2LjItMS40IDkuNi0xLjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2Ni40YzAgMzAuOSAyNS4xIDU2IDU2IDU2czU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNHMtMjQgMTAuNy0yNCAyNHYyNGMwIDM1LjMtMjguNyA2NC02NCA2NEgxNjBjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45IDI1LjEgNTYgNTYgNTZjMzAuOSAwIDU2LTI1LjEgNTYtNTZ2LTYuNGMwLTEzLjMtMTAuNy0yNC0yNC0yNGMtMy40IDAtNi42LjctOS42IDJjLTcuNC0xMC45LTE5LjItMTgtMzIuNC0xOHMtMjUgNy4xLTMyLjQgMThjLTMtLjktNi4yLTEuNC05LjYtMS40Yy0xMy4zIDAtMjQgMTAuNy0yNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2VjU2QzAgMjUuMSAyNS4xIDAgNTYgMGgxMjhjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xNS4zIDAtMjQtMTIuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NmgxMjh6Ii8+PC9zdmc+">
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI4Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxNC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMzg0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMjU2M2ViIj48cGF0aCBkPSJNMTg0IDBjMzAuOSAwIDU2IDI1LjEgNTYgNTZ2Ni40YzAgMTMuMy0xMC43IDI0LTI0IDI0Yy0zLjQgMC02LjYtLjctOS42LTJjLTcuNCAxMC45LTE5LjIgMTgtMzIuNCAxOHMtMjUtNy4xLTMyLjQtMThjLTMgLjktNi4yIDEuNC05LjYgMS40Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFY1NmMwLTMwLjkgMjUuMS01NiA1Ni01NnptNTYgMTIwYzAtMTMuMyAxMC43LTI0IDI0LTI0YzMuNCAwIDYuNi43IDkuNiAyYzcuNC0xMC45IDE5LjItMTggMzIuNC0xOHMyNSA3LjEgMzIuNCAxOGMzLS45IDYuMi0xLjQgOS42LTEuNGMxMy4zIDAgMjQgMTAuNyAyNCAyNHY2LjRjMCAzMC45LTI1LjEgNTYtNTYgNTZjLTMwLjkgMC01Ni0yNS4xLTU2LTU2di02LjRjMC0xMy4zIDEwLjctMjQgMjQtMjRjMTMuMyAwIDI0IDEwLjcgMjQgMjR2MjRjMCAzNS4zLTI4LjcgNjQtNjQgNjRIMjI0djY0aDMyYzE3LjcgMCAzMiAxOC4zIDMyIDMydjMyYzAgMTcuNy0xNC4zIDMyLTMyIDMySDE5MmMtMTcuNyAwLTMyLTE4LjMtMzItMzJWNDA0YzAtMTcuNyAxNC4zLTMyIDMyLTMyaDMyVjI4OEgxOTJjLTM1LjMgMC02NC0yOC43LTY0LTY0di0yNGMwLTEzLjMgMTAuNy0yNCAyNC0yNHMyNCAxMC43IDI0IDI0djYuNGMwIDMwLjkgMjUuMSA1NiA1NiA1NmMzMCkgMCB1Ni0yNS4xIDU2LTU2di02LjRjMC0xMy4zLTEwLjctMjQtMjQtMjRjLTMuNCAwLTYuNi43LTkuNiAyYy03LjQtMTAuOS0xOS4yLTE4LTMyLjQtMThzLTI1IDcuMS0zMi40IDE4Yy0zLS45LTYuMi0xLjQtOS42LTEuNGMtMTMuMywwLTI0LTEyLjctMjQtMjRWNTZjMC0zMC45LDI1LjEtNTYsNTYtNTZoMTI4eiIvPjwvc3ZnPg==">
+    
+    <!-- PWA Install Prompt -->
+    <script>
+        // Check if browser supports PWAs
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed: ', error);
+                    });
+            });
+        }
+        
+        // Show install prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install button
+            document.getElementById('install-btn').style.display = 'flex';
+        });
+    </script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        /* All your existing CSS styles remain unchanged */
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -862,6 +889,43 @@
             background: rgba(37, 99, 235, 0.2);
         }
         
+        /* Install Button */
+        .install-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+        }
+        
+        /* Offline Indicator */
+        .offline-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--warning);
+            color: white;
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            display: none;
+        }
+        
         /* Responsive Design */
         @media (max-width: 1200px) {
             .sidebar {
@@ -969,6 +1033,12 @@
             .bank-btn i {
                 margin: 0;
             }
+            
+            .install-btn {
+                bottom: 70px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
         }
         
         /* Overlay for mobile sidebar */
@@ -989,6 +1059,18 @@
     </style>
 </head>
 <body>
+    <!-- Install Button -->
+    <button class="install-btn" id="install-btn">
+        <i class="fas fa-download"></i>
+        Install VEXA
+    </button>
+    
+    <!-- Offline Indicator -->
+    <div class="offline-indicator" id="offline-indicator">
+        <i class="fas fa-wifi-slash"></i>
+        Offline Mode
+    </div>
+    
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
@@ -1387,6 +1469,15 @@
                                 <span class="slider"></span>
                             </label>
                         </div>
+                        
+                        <div class="settings-option">
+                            <div class="option-title">Offline Mode</div>
+                            <div class="option-desc">Enable app functionality without internet</div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked id="offline-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1551,12 +1642,68 @@
             }
         }
         
+        // PWA Installation
+        function setupPWA() {
+            const installBtn = document.getElementById('install-btn');
+            const offlineIndicator = document.getElementById('offline-indicator');
+            
+            // Install button handler
+            installBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                    installBtn.style.display = 'none';
+                }
+                deferredPrompt = null;
+            });
+            
+            // Track installation state
+            window.addEventListener('appinstalled', () => {
+                console.log('VEXA was installed');
+                installBtn.style.display = 'none';
+            });
+            
+            // Offline detection
+            window.addEventListener('offline', () => {
+                offlineIndicator.style.display = 'flex';
+            });
+            
+            window.addEventListener('online', () => {
+                offlineIndicator.style.display = 'none';
+            });
+            
+            // Set initial offline state
+            if (!navigator.onLine) {
+                offlineIndicator.style.display = 'flex';
+            }
+        }
+        
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
             initCharts();
             setupNavigation();
             setupAIChat();
+            setupPWA();
         });
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
